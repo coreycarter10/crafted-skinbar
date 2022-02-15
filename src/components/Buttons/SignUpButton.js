@@ -1,6 +1,6 @@
 import React from 'react';
 
-const RegisterButton = () => {
+const SignUpButton = () => {
     return (
         <button onClick={}>Sign Up!</button>
     )

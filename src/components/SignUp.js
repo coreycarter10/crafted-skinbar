@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import RegisterButton from "./Buttons/LoginButton";
 
-const Register = () => {
+const SignUp = () => {
     const initialValues = {
         firstName: '',
         lastName: '',
@@ -10,7 +10,7 @@ const Register = () => {
     }
 
     const onSubmit = (values) => {
-        axios.post('/login', {
+        axios.post('/signup', {
             values
         })
         .then((res) => {
@@ -52,7 +52,7 @@ const Register = () => {
         placeholder='Password'
         />
       </form>
-      <RegisterButton onClick={onSubmit} />
+      <SignUpButton onClick={onSubmit} />
     </div>
   );
 };
