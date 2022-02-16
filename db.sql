@@ -22,9 +22,12 @@ CREATE TABLE services (
 );
 
 CREATE TABLE client_cart (
-
+    product REFERENCES products(name),
+    price REFERENCES products(price)
 );
 
 CREATE TABLE products (
-
+    name VARCHAR(200),
+    id SERIAL PRIMARY KEY,
+    price decimal NOT NULL 
 );

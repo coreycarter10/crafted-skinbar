@@ -19,7 +19,7 @@ module.exports = {
             client_id REFERENCES clients(id),
             id SERIAL PRIMARY KEY,
             service REFERENCES services(name),
-            price REFERENCES services(price)
+            price REFERENCES services(price),
             upcoming_appointments TIMESTAMP,
             past_appointments TIMESTAMP
         );

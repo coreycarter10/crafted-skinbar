@@ -5,8 +5,9 @@ import SignUp from "./components/SignUp";
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <SignUp />
+      <h1>Crafted Skin Bar</h1>
+      {/* <NavBar />
+      <SignUp /> */}
     </div>
   );
 }

@@ -47,7 +47,11 @@ module.exports = {
         res.status(401).send("Email or password is incorrect");
       }
     } else {
-      res.status(401).send("Email or password is incorrect");
+      res.status(401).send("Please create an account first!");
     }
   },
+
+  // getInsta: async (req, res) => {
+  //   const { images } = req.body;
+  // }
 };
