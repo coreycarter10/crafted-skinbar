@@ -1,11 +1,12 @@
 import "./App.css";
+import NavBar from "./components/NavBar";
+import SignUp from "./components/SignUp";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Crafted SkinBar</h1>
-      </header>
+      <NavBar />
+      <SignUp />
     </div>
   );
 }

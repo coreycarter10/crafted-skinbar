@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const SignUpButton = () => {
-    return (
-        <button onClick={}>Sign Up!</button>
-    )
-}
+  return <button>Sign Up!</button>;
+};
 
-export default RegisterButton;
+export default SignUpButton;

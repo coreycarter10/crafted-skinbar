@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 
 module.exports = {
-  register: async (req, res) => {
+  signUp: async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
 
     let salt = bcrypt.genSaltSync(10);
