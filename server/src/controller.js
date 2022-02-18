@@ -20,7 +20,12 @@ module.exports = {
     const clientInfo = await sequelize.query(`
       SELECT id, first_name, last_name, email FROM clients WHERE email = '${email}
     `);
-    res.status(200).send(clientInfo);
+    const cleanedClient = {
+      firstName: clientInfo.first_name,
+      lastName: clientInfo.last_name,
+      email: clientInfo.email,
+    };
+    res.status(200).send(cleanedClient);
   },
 
   login: async (req, res) => {
