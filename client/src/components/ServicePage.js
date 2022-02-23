@@ -1,13 +1,13 @@
 import React from "react";
 
 const ServicePage = () => {
-  return (
-    <div>
-      <img src="" />
-      <p></p>
-      Button that links to booking page
-    </div>
-  );
+  const getServices = () => {
+    axios.get("/services").then((res) => {
+      console.log(res.data);
+    });
+  };
+
+  return <div></div>;
 };
 
 export default ServicePage;

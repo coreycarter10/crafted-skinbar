@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import LoginButton from "./Buttons/LoginButton";
+import NavBar from "./NavBar";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -20,6 +21,7 @@ const Login = () => {
 
   return (
     <div>
+      {/* <NavBar /> */}
       <h2>Login</h2>
       <form>
         <input
@@ -29,12 +31,14 @@ const Login = () => {
             setEmail(e.target.value);
           }}
           placeholder="Email"
+          required
         />
         <input
           type="text"
           name="password"
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
+          required
         />
       </form>
       <LoginButton onClick={onSubmit} />

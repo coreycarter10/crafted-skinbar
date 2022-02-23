@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import SignUpButton from "./Buttons/SignUpButton";
 import axios from "axios";
+import NavBar from "./NavBar";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -24,6 +25,7 @@ const SignUp = () => {
 
   return (
     <div>
+      <NavBar />
       <h2>Sign up</h2>
       <form>
         <input
@@ -33,6 +35,7 @@ const SignUp = () => {
             setFirstName(e.target.value);
           }}
           placeholder="First name"
+          required
         />
         <input
           type="text"
@@ -41,6 +44,7 @@ const SignUp = () => {
             setLastName(e.target.value);
           }}
           placeholder="Last name"
+          required
         />
         <input
           type="text"
@@ -49,6 +53,7 @@ const SignUp = () => {
             setEmail(e.target.value);
           }}
           placeholder="Email"
+          required
         />
         <input
           type="text"
@@ -57,6 +62,7 @@ const SignUp = () => {
             setPassword(e.target.value);
           }}
           placeholder="Password"
+          required
         />
       </form>
       <SignUpButton onClick={onSubmit} />
