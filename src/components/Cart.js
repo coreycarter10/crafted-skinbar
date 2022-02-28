@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import ItemCard from "./ItemCard";
+import axios from "axios";
 
 const Cart = ({ update }) => {
   const [data, setData] = useState([]);

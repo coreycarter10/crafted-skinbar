@@ -4,6 +4,9 @@ import SignUp from "./components/SignUp";
 import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import Booking from "./components/Booking";
+import Products from "./components/Products";
+import ServicePage from "./components/ServicePage";
+import Cart from "./components/Cart";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -15,6 +18,9 @@ function App() {
         <Route path="/login" exact element={<Login />} />
         <Route path="/signup" exact element={<SignUp />} />
         <Route path="/book" exact element={<Booking />} />
+        <Route path="/products" exact element={<Products />} />
+        <Route path="/services" exact element={<ServicePage />} />
+        <Route path="/cart" exact element={<Cart />} />
       </Routes>
     </div>
     // <HomePage />

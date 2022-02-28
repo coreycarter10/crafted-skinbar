@@ -9,7 +9,9 @@ const NavBar = () => {
   return (
     <header>
       <h1>Crafted Skin Bar</h1>
-      <button>Services</button>
+      <nav>
+        <Link to="/services">Services</Link>
+      </nav>
       <nav>
         <Link to="/login">Login</Link>
       </nav>
@@ -19,8 +21,12 @@ const NavBar = () => {
       <nav>
         <Link to="/book">Book Now</Link>
       </nav>
-      <button>Products</button>
-      <button>Cart</button>
+      <nav>
+        <Link to="/products">Products</Link>
+      </nav>
+      <nav>
+        <Link to="/cart">Cart</Link>
+      </nav>
     </header>
   );
   // return (
