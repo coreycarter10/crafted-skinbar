@@ -15,7 +15,7 @@ module.exports = {
         '${firstName}',
         '${lastName}',
         '${email}',
-        '${passwordHash}',
+        '${passwordHash}'
       )
     `);
     const clientInfo = await sequelize.query(`

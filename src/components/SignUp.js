@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import SignUpButton from "./Buttons/SignUpButton";
 import axios from "axios";
-import NavBar from "./NavBar";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -9,7 +8,8 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
     axios
       .post("/signup", {
         firstName,
