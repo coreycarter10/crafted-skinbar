@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const LoginButton = () => {
-    return (
-        <button onClick={}>Login</button>
-    )
-}
+  return <button>Login</button>;
+};
 
 export default LoginButton;

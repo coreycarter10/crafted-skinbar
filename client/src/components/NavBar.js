@@ -1,14 +1,26 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import HomePage from "./HomePage";
+import Login from "./Login";
+import SignUp from "./SignUp";
+import { Nav, NavLink, Bars, NavMenu, Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
     <header>
       <h1>Crafted Skin Bar</h1>
       <button>Services</button>
-      <button>Login</button>
-      <button>Book now</button>
+      <nav>
+        <Link to="/login">Login</Link>
+      </nav>
+      <nav>
+        <Link to="/signup">Signup</Link>
+      </nav>
+      <nav>
+        <Link to="/book">Book Now</Link>
+      </nav>
+      <button>Products</button>
+      <button>Cart</button>
     </header>
   );
   // return (
@@ -32,15 +44,6 @@ const NavBar = () => {
   //       </nav>
   //     </div>
   //   </header>
-  // );
-  // return (
-  //   <div id="header">
-  //     <Routes>
-  //       <Route path="/" element={<HomePage />} />
-  //       <Route path="/Home" element={<HomePage />} />
-  //       {/* <Route path='/services' element={<ServicePage />} */}
-  //     </Routes>
-  //   </div>
   // );
 };
 

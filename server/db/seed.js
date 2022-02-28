@@ -13,20 +13,20 @@ module.exports = {
           last_name VARCHAR(75),
           email VARCHAR(75),
           password VARCHAR(255)
-      );
-      
-      CREATE TABLE appointments (
-          client_id INT REFERENCES clients(id),
+        );
+        
+        CREATE TABLE appointments (
+          client_id NOT NULL REFERENCES clients(id),
           id SERIAL PRIMARY KEY,
-          service_id REFERENCES services(id),
+          service_id NOT NULL REFERENCES services(id),
           appointment_time TIMESTAMP
-      );
-      
-      CREATE TABLE services (
+        );
+        
+        CREATE TABLE services (
           id SERIAL PRIMARY KEY,
           name VARCHAR(200),
-          price decimal NOT NULL,
-      );
+          price decimal NOT NULL
+        );
     `);
   },
 };

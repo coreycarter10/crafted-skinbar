@@ -25,7 +25,6 @@ const SignUp = () => {
 
   return (
     <div>
-      <NavBar />
       <h2>Sign up</h2>
       <form>
         <input

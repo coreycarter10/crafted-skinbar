@@ -1,4 +1,5 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
+const sequelize = require("../db/sequelize");
 
 module.exports = {
   signUp: async (req, res) => {
@@ -54,6 +55,29 @@ module.exports = {
     } else {
       res.status(401).send("Please create an account first!");
     }
+  },
+
+  getServices: async (req, res) => {
+    const services = await sequelize.query(`
+      SELECT * FROM services
+    `);
+    res.status(200).send(services);
+  },
+
+  bookAppointment: async (req, res) => {
+    const { time, service } = req.body;
+
+    const booking = await sequelize.query(`
+      SELECT id, name, price FROM services WHERE service = '${service}';
+      SELECT appointment_time WHERE TIMESTAMP = '${time}';
+    `);
+
+    // const [booking] = appointments.filter(
+    //   (element) => element === `${(day, time)}`
+    // );
+
+    if (booking)
+      return res.status(200).send("This appointment is already booked");
   },
 
   // getInsta: async (req, res) => {
