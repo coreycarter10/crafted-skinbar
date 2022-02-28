@@ -80,7 +80,10 @@ module.exports = {
       return res.status(200).send("This appointment is already booked");
   },
 
-  // getInsta: async (req, res) => {
-  //   const { images } = req.body;
-  // }
+  getProducts: async (req, res) => {
+    let products = await sequelize.query(`
+      SELECT * FROM products
+    `);
+    res.status(200).send(products[0]);
+  },
 };

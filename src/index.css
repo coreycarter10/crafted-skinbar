@@ -14,6 +14,7 @@ code {
 
 #aboutSection {
   margin: auto;
+  margin-top: 5%;
   background-color: #e8dccf;
   flex-direction: column;
   display: flex;
@@ -49,3 +50,85 @@ code {
   border-radius: 5px;
   box-shadow: 0px 3px 10px rgba(0,0,0,0.5);
 } */
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: #e8dccf;
+  margin: 0 auto;
+  padding: 0 auto;
+  width: 100%;
+  height: 8vh;
+}
+
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav ul {
+  margin: 0;
+  margin-right: 10vw;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 100px;
+  margin-bottom: 25px;
+  padding-top: 25px;
+
+  position: relative;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 16px;
+}
+
+nav a:hover {
+  color: white;
+}
+
+#homeLogo {
+  max-height: 400px;
+  max-width: 800px;
+  margin-bottom: 20vh;
+}
+
+#homeDiv {
+  display: flex;
+  flex-direction: row;
+  margin-left: 4%;
+  padding-left: 8%;
+}
+
+#signupDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 1000px;
+  margin: auto;
+  margin-top: 13vh;
+  height: 40vh;
+  background-color: aliceblue;
+}
+
+#bookingDiv {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#bookAppointment {
+  background-color: #e8dccf;
+  height: 5vh;
+  border-radius: 10%;
+}

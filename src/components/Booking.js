@@ -20,7 +20,7 @@ const Booking = () => {
         Select an appointment time:{" "}
       </label>
       <input
-        id="sessionTime"
+        id="appointmentTime"
         list="times"
         type="time"
         name="appt-time"
@@ -29,15 +29,6 @@ const Booking = () => {
       />
 
       <datalist id="times">
-        <option value="00:00:00" />
-        <option value="01:00:00" />
-        <option value="02:00:00" />
-        <option value="03:00:00" />
-        <option value="04:00:00" />
-        <option value="05:00:00" />
-        <option value="06:00:00" />
-        <option value="07:00:00" />
-        <option value="08:00:00" />
         <option value="09:00:00" />
         <option value="10:00:00" />
         <option value="11:00:00" />
@@ -47,15 +38,9 @@ const Booking = () => {
         <option value="15:00:00" />
         <option value="16:00:00" />
         <option value="17:00:00" />
-        <option value="18:00:00" />
-        <option value="19:00:00" />
-        <option value="20:00:00" />
-        <option value="21:00:00" />
-        <option value="22:00:00" />
-        <option value="23:00:00" />
       </datalist>
 
-      <button id="bookSession">Book appointment!</button>
+      <button id="bookAppointment">Book appointment!</button>
     </div>
   );
 };

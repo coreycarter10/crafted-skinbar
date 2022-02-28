@@ -11,14 +11,14 @@ const Products = ({ update, setUpdate }) => {
       productID: id,
     };
 
-    axios.post("http://localhost:4000/api/addToCart", object).then((res) => {
+    axios.post("/api/addToCart", object).then((res) => {
       console.log(res.data);
       setUpdate(++update);
     });
   };
 
   useEffect(() => {
-    axios.get("http://localhost:4000/api/allProducts").then((res) => {
+    axios.get("/api/allProducts").then((res) => {
       console.log(res.data);
       setData(res.data);
     });

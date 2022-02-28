@@ -1,3 +1,5 @@
+require("dotenv").config();
+const migration = require("../db/seed");
 const express = require("express");
 const cors = require("cors");
 const app = express();
@@ -7,9 +9,11 @@ const ctrl = require("./controller.js");
 app.use(express.json());
 app.use(cors());
 
+// migration.seed();
+app.get("/api/allProducts", ctrl.getProducts);
 // app.get('/services', ctrl.getServices);
 // app.get('/api/instagram/craftedskinbar', ctrl.getInsta);
-app.post("/signup", ctrl.signUp);
+app.post("/api/signup", ctrl.signUp);
 // app.post("/login", ctrl.login);
 
 app.listen(4000, () => console.log(`Server running on port 4000`));

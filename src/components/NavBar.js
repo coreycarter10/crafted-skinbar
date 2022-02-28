@@ -8,10 +8,12 @@ import { Nav, NavLink, Bars, NavMenu, Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <header>
-      <h1>Crafted Skin Bar</h1>
       <nav>
-        <Link to="/services">Services</Link>
+        <Link to="/">Home</Link>
       </nav>
+      {/* <nav>
+        <Link to="/services">Services</Link>
+      </nav> */}
       <nav>
         <Link to="/login">Login</Link>
       </nav>
@@ -29,28 +31,6 @@ const NavBar = () => {
       </nav>
     </header>
   );
-  // return (
-  //   <header id="homeHeader">
-  //     <div id="navbar">
-  //       <nav>
-  //         <ul>
-  //           <li>
-  //             <a href="./home.html">HOME</a>
-  //           </li>
-  //           <li>
-  //             <a href="./home.html">SERVICES</a>
-  //           </li>
-  //           <li>
-  //             <a href="./booking.html">BOOK NOW</a>
-  //           </li>
-  //           <li>
-  //             <a href="./Login.js">LOGIN</a>
-  //           </li>
-  //         </ul>
-  //       </nav>
-  //     </div>
-  //   </header>
-  // );
 };
 
 export default NavBar;

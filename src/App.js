@@ -7,6 +7,7 @@ import Booking from "./components/Booking";
 import Products from "./components/Products";
 import ServicePage from "./components/ServicePage";
 import Cart from "./components/Cart";
+import Footer from "./components/Footer";
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path="/services" exact element={<ServicePage />} />
         <Route path="/cart" exact element={<Cart />} />
       </Routes>
+      <Footer />
     </div>
     // <HomePage />
   );

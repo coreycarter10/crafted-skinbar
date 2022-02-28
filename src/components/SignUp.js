@@ -18,14 +18,15 @@ const SignUp = () => {
         password,
       })
       .then((res) => {
+        alert("Signup successful");
         console.log(res.data);
         // Make some kind of sign in alert?
       });
   };
 
   return (
-    <div>
-      <h2>Sign up</h2>
+    <div id="signupDiv">
+      <h2>Create an account</h2>
       <form>
         <input
           type="text"
@@ -64,7 +65,7 @@ const SignUp = () => {
           required
         />
       </form>
-      <SignUpButton onClick={onSubmit} />
+      <button onClick={onSubmit}>Signup</button>
     </div>
   );
 };

@@ -16,17 +16,20 @@ module.exports = {
         );
         
         CREATE TABLE appointments (
-          client_id NOT NULL REFERENCES clients(id),
+          client_id INT,
           id SERIAL PRIMARY KEY,
-          service_id NOT NULL REFERENCES services(id),
+          service_id INT,
           appointment_time TIMESTAMP
         );
         
         CREATE TABLE services (
           id SERIAL PRIMARY KEY,
           name VARCHAR(200),
-          price decimal NOT NULL
+          price decimal
         );
+
+        ALTER TABLE "appointments" ADD FOREIGN KEY ("client_id") REFERENCES "clients"("id");
+        ALTER TABLE "appointments" ADD FOREIGN KEY ("service_id") REFERENCES "services"("id");
     `);
   },
 };

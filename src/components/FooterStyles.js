@@ -1,24 +1,31 @@
 import styled from "styled-components";
 
 export const Box = styled.div`
-  padding: 80px 60px;
-  background: #e8dccf;
   position: absolute;
   bottom: 0;
   width: 100%;
+  height: 20vh;
+  background: #e8dccf;
+  color: black;
+  // padding: 80px 60px;
+  // background: #e8dccf;
+  // position: absolute;
+  // bottom: 0;
+  // width: 100%;
   //   height: 40px;
 
-  @media (max-width: 1000px) {
-    padding: 70px 30px;
-  }
+  // @media (max-width: 1000px) {
+  //   padding: 70px 30px;
+  // }
 `;
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   max-width: 1000px;
   margin: 0 auto;
+  margin-top: 13px;
   /* background: red; */
 `;
 
