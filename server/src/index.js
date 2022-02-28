@@ -12,7 +12,7 @@ app.use(cors());
 // migration.seed();
 app.get("/api/allProducts", ctrl.getProducts);
 // app.get('/services', ctrl.getServices);
-// app.get('/api/instagram/craftedskinbar', ctrl.getInsta);
+app.post("api/book", ctrl.bookAppointment);
 app.post("/api/signup", ctrl.signUp);
 // app.post("/login", ctrl.login);
 

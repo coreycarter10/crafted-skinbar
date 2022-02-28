@@ -1,7 +1,5 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import HomePage from "./HomePage";
-import Login from "./Login";
 import SignUp from "./SignUp";
 import { Nav, NavLink, Bars, NavMenu, Link } from "react-router-dom";
 

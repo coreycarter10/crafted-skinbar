@@ -22,7 +22,7 @@ code {
   height: 30vh;
   width: 30vw;
   border: solid;
-  box-shadow: 10px 10px 10px black;
+  box-shadow: 10px 10px 10px 10px black;
 }
 
 .product-card {
@@ -109,14 +109,35 @@ nav a:hover {
 }
 
 #signupDiv {
+  height: 80vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-evenly;
+  background-color: white;
   max-width: 1000px;
-  margin: auto;
-  margin-top: 13vh;
-  height: 40vh;
-  background-color: aliceblue;
+  max-height: 500px;
+  margin-left: 30vw;
+  margin-top: 16vh;
+  box-shadow: 10px 10px 10px 10px black;
+  background-color: #e8dccf;
+  border: solid;
+}
+
+#loginDiv {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: white;
+  max-width: 1000px;
+  max-height: 500px;
+  margin-left: 30vw;
+  margin-top: 16vh;
+  box-shadow: 10px 10px 10px 10px black;
+  background-color: #e8dccf;
+  border: solid;
 }
 
 #bookingDiv {
@@ -131,4 +152,10 @@ nav a:hover {
   background-color: #e8dccf;
   height: 5vh;
   border-radius: 10%;
+}
+
+#signUpButton {
+  border-radius: 20%;
+  width: 10%;
+  background-color: white;
 }

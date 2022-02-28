@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import LoginButton from "./Buttons/LoginButton";
-import NavBar from "./NavBar";
 import axios from "axios";
 
 const Login = () => {
@@ -21,8 +19,7 @@ const Login = () => {
   };
 
   return (
-    <div>
-      {/* <NavBar /> */}
+    <div id="loginDiv">
       <h2>Login</h2>
       <form>
         <input
@@ -42,7 +39,9 @@ const Login = () => {
           required
         />
       </form>
-      <LoginButton onClick={onSubmit} />
+      <button onClick={onSubmit} className="button">
+        Login
+      </button>
     </div>
   );
 };

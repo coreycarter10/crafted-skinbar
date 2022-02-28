@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import SignUpButton from "./Buttons/SignUpButton";
 import axios from "axios";
+import "../Buttons.css";
 
 const SignUp = () => {
   const [firstName, setFirstName] = useState("");
@@ -65,7 +65,9 @@ const SignUp = () => {
           required
         />
       </form>
-      <button onClick={onSubmit}>Signup</button>
+      <button onClick={onSubmit} className="button">
+        Signup
+      </button>
     </div>
   );
 };

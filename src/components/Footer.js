@@ -33,7 +33,7 @@ const Footer = () => {
               href="https://www.google.com/maps/place/2268+E+Williams+Field+Rd,+Gilbert,+AZ+85295/@33.3107693,-111.7426649,18z/data=!4m5!3m4!1s0x872bad7c1e8a1a35:0x2f4763993b111fe2!8m2!3d33.3107859!4d-111.7416778"
               target="blank"
             >
-              2268 E Williams Field Road Gilbert, Arizon 85295 Suite 2
+              2268 E Williams Field Road Gilbert, Arizona 85295 Suite 2
             </FooterLink>
           </Column>
         </Row>
