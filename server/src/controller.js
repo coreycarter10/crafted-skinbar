@@ -72,10 +72,6 @@ module.exports = {
       SELECT appointment_time WHERE TIMESTAMP = '${time}';
     `);
 
-    // const [booking] = appointments.filter(
-    //   (element) => element === `${(day, time)}`
-    // );
-
     if (booking)
       return res.status(200).send("This appointment is already booked");
   },
@@ -85,5 +81,36 @@ module.exports = {
       SELECT * FROM products
     `);
     res.status(200).send(products[0]);
+  },
+
+  getUserCart: async (req, res) => {
+    const { id } = req.params;
+    const myCart = await sequelize.query(`
+      SELECT c.id as cart_id, p.name, p.description FROM cart c
+      JOIN products p
+      ON c.product_id = p.id
+      WHERE c.user_id = ${id}
+    `);
+    res.status(200).send(myCart[0]);
+  },
+
+  addToCart: async (req, res) => {
+    const { userID, productID } = req.body;
+    await sequelize.query(`
+      INSERT INTO cart (user_id, product_id)
+      VALUES (
+        ${userID},
+        ${productID}
+      )
+    `);
+    res.status(200).send("Item added to cart");
+  },
+
+  removeFromCart: async (req, res) => {
+    const { id } = req.params;
+    await sequelize.query(`
+      DELETE FROM car WHERE id = ${id}
+    `);
+    res.status(200).send("Removed from cart");
   },
 };

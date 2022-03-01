@@ -1,17 +1,43 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
+import "./bookingstyles.css";
 
 const Booking = () => {
-  const [time, setTime] = useState("");
-  const [day, setDay] = useState("");
+  const [bookingDate, setBookingDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+  const [bookingTimes, setBookingTimes] = useState([]);
+
+  const times = [
+    "9:00 - 10:00",
+    "10:00 - 11:00",
+    "11:00 - 12:00",
+    "12:00 - 1:00",
+    "1:00 - 2:00",
+    "2:00 - 3:00",
+    "3:00 - 4:00",
+    "4:00 - 5:00",
+  ];
+
+  useEffect(() => {
+    if (!bookingDate) return;
+
+    setBookingTimes(times);
+  }, [bookingDate]);
+
+  const onDateChange = (e) => {
+    // setSelectedTime(null);
+    setBookingDate(e);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
 
     axios
       .post("/book", {
-        time,
-        day,
+        selectedTime,
+        bookingDate,
       })
       .then((res) => {
         alert("Appointment booked successfully!");
@@ -19,54 +45,38 @@ const Booking = () => {
       });
   };
 
+  // const handleClick = () => {
+  //   (e) => setSelectedTime(e.target.value)
+  //   onSubmit()
+  // }
+
   return (
     <div id="bookingDiv">
-      <label id="selectDay" for="start">
-        Select day:
-      </label>
-
-      <input
-        type="date"
-        id="sessionDate"
-        name="trip-start"
-        value="2022-01-01"
-        min="2022-01-01"
-        max="2022-12-31"
-        onChange={(e) => {
-          setDay(e.target.value);
-        }}
-      />
-
-      <label id="sessionTimeP" for="appt-time">
-        Select an appointment time:{" "}
-      </label>
-      <input
-        id="appointmentTime"
-        list="times"
-        type="time"
-        name="appt-time"
-        value="00:00"
-        step="3600"
-        onChange={(e) => {
-          setTime(e.target.value);
-        }}
-      />
-
-      <datalist id="times">
-        <option value="09:00:00" />
-        <option value="10:00:00" />
-        <option value="11:00:00" />
-        <option value="12:00:00" />
-        <option value="13:00:00" />
-        <option value="14:00:00" />
-        <option value="15:00:00" />
-        <option value="16:00:00" />
-        <option value="17:00:00" />
-      </datalist>
-
-      <button className="button" onClick={onSubmit}>
-        Book appointment!
-      </button>
+      <h2>Book appointment</h2>
+      <div>
+        <Calendar
+          value={bookingDate}
+          onChange={(value, event) => {
+            // alert("new date is", value);
+            onDateChange(value);
+          }}
+        />
+        <div className="booking-buttons">
+          {!bookingDate
+            ? null
+            : times.map((time) => {
+                return (
+                  <button
+                    key={time}
+                    className="bookButtons"
+                    onClick={(e) => setSelectedTime(e.target.value)}
+                  >
+                    {time}
+                  </button>
+                );
+              })}
+        </div>
+      </div>
     </div>
   );
 };

@@ -141,11 +141,10 @@ nav a:hover {
 }
 
 #bookingDiv {
-  height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
 }
 
 #bookAppointment {
