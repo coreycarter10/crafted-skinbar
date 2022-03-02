@@ -109,9 +109,9 @@ module.exports = {
     const { id, name, price } = req.body;
 
     let product = {
-      id: id,
-      name: name,
-      price: price,
+      id,
+      name,
+      price,
     };
 
     myCart.push(product);
@@ -124,7 +124,13 @@ module.exports = {
   },
 
   removeFromCart: async (req, res) => {
-    const { id } = req.params;
+    const { id, name, price } = req.body;
+
+    let product = {
+      id,
+      name,
+      price,
+    };
 
     const index = myCart.findIndex((item) => +item.id === +id);
 
