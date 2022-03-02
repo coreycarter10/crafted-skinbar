@@ -1,6 +1,31 @@
 const bcrypt = require("bcryptjs");
 const sequelize = require("../db/sequelize");
 
+const products = [
+  {
+    id: 1,
+    name: "Cleanser",
+    price: 30,
+  },
+  {
+    id: 2,
+    name: "Moisturizer",
+    price: 60,
+  },
+  {
+    id: 3,
+    name: "Sunscreen",
+    price: 50,
+  },
+  {
+    id: 4,
+    name: "Serum",
+    price: 45,
+  },
+];
+
+const myCart = [];
+
 module.exports = {
   signUp: async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
@@ -57,12 +82,12 @@ module.exports = {
     }
   },
 
-  getServices: async (req, res) => {
-    const services = await sequelize.query(`
-      SELECT * FROM services
-    `);
-    res.status(200).send(services);
-  },
+  // getServices: async (req, res) => {
+  //   const services = await sequelize.query(`
+  //     SELECT * FROM services
+  //   `);
+  //   res.status(200).send(services);
+  // },
 
   bookAppointment: async (req, res) => {
     const { time, service } = req.body;
@@ -77,40 +102,34 @@ module.exports = {
   },
 
   getProducts: async (req, res) => {
-    let products = await sequelize.query(`
-      SELECT * FROM products
-    `);
-    res.status(200).send(products[0]);
-  },
-
-  getUserCart: async (req, res) => {
-    const { id } = req.params;
-    const myCart = await sequelize.query(`
-      SELECT c.id as cart_id, p.name, p.description FROM cart c
-      JOIN products p
-      ON c.product_id = p.id
-      WHERE c.user_id = ${id}
-    `);
-    res.status(200).send(myCart[0]);
+    res.status(200).send(products);
   },
 
   addToCart: async (req, res) => {
-    const { userID, productID } = req.body;
-    await sequelize.query(`
-      INSERT INTO cart (user_id, product_id)
-      VALUES (
-        ${userID},
-        ${productID}
-      )
-    `);
-    res.status(200).send("Item added to cart");
+    const { id, name, price } = req.body;
+
+    let product = {
+      id: id,
+      name: name,
+      price: price,
+    };
+
+    myCart.push(product);
+    res.status(200).send(myCart);
+    console.log(myCart);
+  },
+
+  getUserCart: async (req, res) => {
+    res.status(200).send(myCart);
   },
 
   removeFromCart: async (req, res) => {
     const { id } = req.params;
-    await sequelize.query(`
-      DELETE FROM car WHERE id = ${id}
-    `);
-    res.status(200).send("Removed from cart");
+
+    const index = myCart.findIndex((item) => +item.id === +id);
+
+    myCart.splice(index, 1);
+
+    res.status(200).send(myCart);
   },
 };

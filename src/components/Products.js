@@ -13,21 +13,23 @@ const Products = ({ update, setUpdate }) => {
 
     axios.post("/api/addToCart", object).then((res) => {
       console.log(res.data);
-      setUpdate(++update);
+      // setUpdate(++update);
+      alert("Item added to cart");
     });
   };
 
   useEffect(() => {
-    axios.get("/api/allProducts").then((res) => {
-      console.log(res.data);
+    axios.get("http://localhost:4000/api/allProducts").then((res) => {
+      // console.log(res.data);
       setData(res.data);
     });
   }, []);
 
   return (
     <div className="page-container">
-      <h2>Products Available</h2>
+      <h2>Products</h2>
       {data.map((element, index) => {
+        console.log(element);
         return <ProductCard data={element} key={index} addToCart={addToCart} />;
       })}
     </div>
