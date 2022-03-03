@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+p {
+  line-height: 2;
+}
+
 #aboutSection {
   margin: auto;
   margin-top: 5%;

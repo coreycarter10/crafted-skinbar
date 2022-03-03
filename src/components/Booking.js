@@ -77,7 +77,7 @@ const Booking = () => {
               })}
         </div>
         <button
-          className="bookButtons"
+          className="button"
           // disabled={!selectedTime || !bookingDate}
           onClick={() => onSubmit()}
         >
