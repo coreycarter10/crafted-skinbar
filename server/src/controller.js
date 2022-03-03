@@ -88,13 +88,14 @@ module.exports = {
   // },
 
   bookAppointment: async (req, res) => {
-    const { selectedTime, bookingDate } = req.body;
+    const { newDate } = req.body;
 
-    const apptTime = new Date(bookingDate);
-    // const booking = await sequelize.query(`
-    //   INSERT INTO appointments (appointment_time)
-    //   VALUES ()
-    // `);
+    const booking = await sequelize.query(`
+      INSERT INTO appointments (appointment_time)
+      VALUES (
+        '${newDate}'
+      )
+    `);
 
     if (booking)
       return res.status(200).send("This appointment is already booked");

@@ -5,7 +5,7 @@ import "react-calendar/dist/Calendar.css";
 import "./bookingstyles.css";
 
 const Booking = () => {
-  const [bookingDate, setBookingDate] = useState(null);
+  const [bookingDate, setBookingDate] = useState("");
   const [selectedTime, setSelectedTime] = useState(null);
   const [bookingTimes, setBookingTimes] = useState([]);
 
@@ -32,11 +32,15 @@ const Booking = () => {
   };
 
   const onSubmit = () => {
-    console.log(bookingDate);
+    let day = JSON.stringify(bookingDate);
+
+    let date = day.split("T").splice(0, 1).toString() + ` ${selectedTime}`;
+
+    let newDate = new Date(date);
+
     axios
       .post("/api/book", {
-        selectedTime,
-        bookingDate,
+        newDate,
       })
       .then((res) => {
         alert("Appointment booked successfully!");
@@ -44,11 +48,7 @@ const Booking = () => {
       });
   };
 
-  // const handleClick = () => {
-  //   (e) => setSelectedTime(e.target.value)
-  //   onSubmit()
-  // }
-  console.log(bookingDate);
+  // console.log(bookingDate);
 
   return (
     <div id="bookingDiv">
@@ -78,7 +78,7 @@ const Booking = () => {
         </div>
         <button
           className="bookButtons"
-          disabled={!selectedTime || !bookingDate}
+          // disabled={!selectedTime || !bookingDate}
           onClick={() => onSubmit()}
         >
           Book Now
