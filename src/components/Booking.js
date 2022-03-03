@@ -10,14 +10,14 @@ const Booking = () => {
   const [bookingTimes, setBookingTimes] = useState([]);
 
   const times = [
-    "9:00 - 10:00",
-    "10:00 - 11:00",
-    "11:00 - 12:00",
-    "12:00 - 1:00",
-    "1:00 - 2:00",
-    "2:00 - 3:00",
-    "3:00 - 4:00",
-    "4:00 - 5:00",
+    "9:00",
+    "10:00",
+    "11:00",
+    "12:00",
+    "1:00",
+    "2:00",
+    "3:00",
+    "4:00",
   ];
 
   useEffect(() => {
@@ -31,11 +31,10 @@ const Booking = () => {
     setBookingDate(e);
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault();
-
+  const onSubmit = () => {
+    console.log(bookingDate);
     axios
-      .post("/book", {
+      .post("/api/book", {
         selectedTime,
         bookingDate,
       })
@@ -49,6 +48,7 @@ const Booking = () => {
   //   (e) => setSelectedTime(e.target.value)
   //   onSubmit()
   // }
+  console.log(bookingDate);
 
   return (
     <div id="bookingDiv">
@@ -76,6 +76,13 @@ const Booking = () => {
                 );
               })}
         </div>
+        <button
+          className="bookButtons"
+          disabled={!selectedTime || !bookingDate}
+          onClick={() => onSubmit()}
+        >
+          Book Now
+        </button>
       </div>
     </div>
   );

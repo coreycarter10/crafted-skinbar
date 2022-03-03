@@ -6,13 +6,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const onSubmit = () => {
+    console.log(email, password);
     axios
-      .post("/login", {
+      .post("/api/login", {
         email,
         password,
       })
       .then((res) => {
         console.log(res.data);
+        alert("Login successful");
         // Make a logged in page?
       })
       .catch((err) => console.log(err.res.data));
@@ -39,7 +41,7 @@ const Login = () => {
           required
         />
       </form>
-      <button onClick={onSubmit} className="button">
+      <button onClick={() => onSubmit()} className="button">
         Login
       </button>
     </div>

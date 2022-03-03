@@ -44,7 +44,7 @@ module.exports = {
       )
     `);
     const clientInfo = await sequelize.query(`
-      SELECT id, first_name, last_name, email FROM clients WHERE email = '${email}
+      SELECT id, first_name, last_name, email FROM clients WHERE email = '${email}'
     `);
     const cleanedClient = {
       firstName: clientInfo.first_name,
@@ -65,21 +65,19 @@ module.exports = {
       )
       .catch((err) => console.log(err));
 
-    if (validClient[1].rowCount === 1) {
-      if (bcrypt.compareSync(password, validClient[0][0].password)) {
-        let client = {
-          id: validClient[0][0].id,
-          firstName: validClient[0][0].firstName,
-          lastName: validClient[0][0].lastName,
-          email: validClient[0][0].email,
-        };
-        res.status(200).send(client);
-      } else {
-        res.status(401).send("Email or password is incorrect");
-      }
-    } else {
-      res.status(401).send("Please create an account first!");
-    }
+    if (validClient[1].rowCount !== 1)
+      return res.status(401).send("Please create an account first!");
+
+    if (!bcrypt.compareSync(password, validClient[0][0].password))
+      return res.status(401).send("Email or password is incorrect");
+
+    let client = {
+      id: validClient[0][0].id,
+      firstName: validClient[0][0].firstName,
+      lastName: validClient[0][0].lastName,
+      email: validClient[0][0].email,
+    };
+    res.status(200).send(client);
   },
 
   // getServices: async (req, res) => {
@@ -90,12 +88,13 @@ module.exports = {
   // },
 
   bookAppointment: async (req, res) => {
-    const { time, service } = req.body;
+    const { selectedTime, bookingDate } = req.body;
 
-    const booking = await sequelize.query(`
-      SELECT id, name, price FROM services WHERE service = '${service}';
-      SELECT appointment_time WHERE TIMESTAMP = '${time}';
-    `);
+    const apptTime = new Date(bookingDate);
+    // const booking = await sequelize.query(`
+    //   INSERT INTO appointments (appointment_time)
+    //   VALUES ()
+    // `);
 
     if (booking)
       return res.status(200).send("This appointment is already booked");
@@ -106,17 +105,12 @@ module.exports = {
   },
 
   addToCart: async (req, res) => {
-    const { id, name, price } = req.body;
+    const { productId } = req.params;
 
-    let product = {
-      id,
-      name,
-      price,
-    };
+    const [product] = products.filter((ele) => ele.id === parseInt(productId));
 
     myCart.push(product);
     res.status(200).send(myCart);
-    console.log(myCart);
   },
 
   getUserCart: async (req, res) => {

@@ -6,13 +6,7 @@ const Products = ({ update, setUpdate }) => {
   const [data, setData] = useState([]);
 
   const addToCart = (id) => {
-    let object = {
-      userID: 1,
-      productID: id,
-    };
-
-    axios.post("/api/addToCart", object).then((res) => {
-      console.log(res.data);
+    axios.post(`/api/addToCart/${id}`).then((res) => {
       // setUpdate(++update);
       alert("Item added to cart");
     });

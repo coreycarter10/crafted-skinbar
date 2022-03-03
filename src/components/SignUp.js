@@ -8,10 +8,9 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const onSubmit = () => {
     axios
-      .post("/signup", {
+      .post("/api/signup", {
         firstName,
         lastName,
         email,
@@ -65,7 +64,7 @@ const SignUp = () => {
           required
         />
       </form>
-      <button onClick={onSubmit} className="button">
+      <button onClick={() => onSubmit()} className="button">
         Signup
       </button>
     </div>
