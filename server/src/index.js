@@ -15,7 +15,6 @@ app.get("/api/userCart/:id", ctrl.getUserCart);
 app.post("/api/addToCart/:productId", ctrl.addToCart);
 app.delete("/api/userCart/:id", ctrl.removeFromCart);
 
-// app.get('/services', ctrl.getServices);
 app.post("/api/book", ctrl.bookAppointment);
 app.post("/api/signup", ctrl.signUp);
 app.post("/api/login", ctrl.login);

@@ -44,7 +44,6 @@ const Booking = () => {
       })
       .then((res) => {
         alert("Appointment booked successfully!");
-        console.log(res.data);
       });
   };
 
